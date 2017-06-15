@@ -7,6 +7,117 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://github.com/gedman4b/Ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#studies -->
+
+    <owl:ObjectProperty rdf:about="http://github.com/gedman4b/Ontology#studies">
+        <rdfs:domain rdf:resource="http://github.com/gedman4b/Ontology#Student"/>
+        <rdfs:range rdf:resource="http://github.com/gedman4b/Ontology#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#teaches -->
+
+    <owl:ObjectProperty rdf:about="http://github.com/gedman4b/Ontology#teaches">
+        <rdfs:domain rdf:resource="http://github.com/gedman4b/Ontology#Lecturer"/>
+        <rdfs:range rdf:resource="http://github.com/gedman4b/Ontology#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#CSModule -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#CSModule">
+        <rdfs:subClassOf rdf:resource="http://github.com/gedman4b/Ontology#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#Lecturer -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#Lecturer">
+        <rdfs:subClassOf rdf:resource="http://github.com/gedman4b/Ontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#MathModule -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#MathModule">
+        <rdfs:subClassOf rdf:resource="http://github.com/gedman4b/Ontology#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#Module -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#Module"/>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#Person -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#Person"/>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#Student -->
+
+    <owl:Class rdf:about="http://github.com/gedman4b/Ontology#Student">
+        <rdfs:subClassOf rdf:resource="http://github.com/gedman4b/Ontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#CSModule"/>
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#MathModule"/>
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#Person"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#Lecturer"/>
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#Module"/>
+            <rdf:Description rdf:about="http://github.com/gedman4b/Ontology#Student"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
