@@ -210,6 +210,12 @@
 
     <owl:NamedIndividual rdf:about="http://github.com/gedman4b/Ontology#Student1">
         <rdf:type rdf:resource="http://github.com/gedman4b/Ontology#Student"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#CS101"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#M201"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#M204"/>
+        <first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Josef</first_name>
+        <last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Baker</last_name>
+        <studentID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">266814</studentID>
     </owl:NamedIndividual>
     
 
@@ -218,6 +224,17 @@
 
     <owl:NamedIndividual rdf:about="http://github.com/gedman4b/Ontology#Student2">
         <rdf:type rdf:resource="http://github.com/gedman4b/Ontology#Student"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#M204"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://github.com/gedman4b/Ontology#Student3 -->
+
+    <owl:NamedIndividual rdf:about="http://github.com/gedman4b/Ontology#Student3">
+        <rdf:type rdf:resource="http://github.com/gedman4b/Ontology#Student"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#CS103"/>
+        <studies rdf:resource="http://github.com/gedman4b/Ontology#M201"/>
     </owl:NamedIndividual>
     
 
