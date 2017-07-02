@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/mbo.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/mbo.owl"
+     xmlns:chebi="http://purl.obolibrary.org/obo/chebi.owl#"
+     xmlns:mbo1="http://ontology.intelligytics.com/ontology/mbo.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:resource="http://semanticscience.org/resource/"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:bfo="http://www.ifomis.org/bfo/1.1#"
+     xmlns:purl="http://purl.obofoundry.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:mbo="http://ontology.metabolon.com/ontology/mbo.owl#"
+     xmlns:ro="http://www.obofoundry.org/ro/ro.owl#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:mboSuperSubInstances="http://intelligytics.com/ontology/mboSuperSubInstances.owl#"
+     xmlns:ontologies="http://www.semanticweb.org/ontologies/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://intelligytics.com/ontology/mbo.owl">
+        <owl:imports rdf:resource="http://intelligytics.com/ontology/mboSuperSubInstances.owl"/>
+        <dc:language rdf:datatype="xsd:string">en</dc:language>
+        <dc:rights>http://creativecommons.org/licenses/by/3.0</dc:rights>
+        <dc:contributor rdf:datatype="xsd:Pstring">Scott Josephson</dc:contributor>
+        <dc:format rdf:datatype="xsd:string">application/rdf+xml</dc:format>
+        <rdfs:comment>To develop the ontology, you must change the default auto-create settings in Protege 4. Go to file&gt;preferences&gt;New Entities. Change the following:
+specified URI = http://semanticscience.org/resource/
+Followed by &apos;/&apos;, End with : AutoID
+AutoID - digit count = 6, prefix = MBO_</rdfs:comment>
+        <dc:title rdf:datatype="xsd:string">metabolomics ontology (mbo) - information entities about metabolomics entities</dc:title>
+        <dc:contributor>Scott Josephson</dc:contributor>
+        <owl:versionInfo rdf:datatype="xsd:string">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#ecNumber -->
+
+    <owl:AnnotationProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#ecNumber"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#id -->
+
+    <owl:AnnotationProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#id"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#isAChEBIEnzyme -->
+
+    <owl:AnnotationProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#isAChEBIEnzyme"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#CofactorOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#CofactorOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#IntermediateOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#IntermediateOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#ProductOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#ProductOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#ReactantOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#ReactantOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#Reversible -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#Reversible"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#hasSuperPathay -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#hasSuperPathay"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/mbo.owl#isASubPathwayOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/mbo.owl#isASubPathwayOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#CofactorOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#CofactorOf">
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Cofactor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#IntermediateOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#IntermediateOf">
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Intermediate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#ProductOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#ProductOf">
+        <owl:inverseOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#ProductTo"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Minor_Metabolite"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ProductOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#ProductTo -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#ProductTo">
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#FinalPathway"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Unknown"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#ReactantOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#ReactantOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Reversible -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Reversible">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#hasCompound -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#hasCompound">
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#SubPathway"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#hasSubPathway -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#hasSubPathway">
+        <owl:inverseOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#isASubPathwayOf"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Animal"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Bacteria"/>
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Plant"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#SubPathway"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#hasSuperPathway -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#hasSuperPathway">
+        <rdfs:domain rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#SubPathway"/>
+        <rdfs:range rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#SuperPathway"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#isAChEBIEnzyme -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#isAChEBIEnzyme"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#isASubPathwayOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#isASubPathwayOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Animal -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Animal">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolomics_Pathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Bacteria -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Bacteria">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolomics_Pathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Cofactor -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Cofactor">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Cofactor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#FinalPathway -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#FinalPathway">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#FinalPathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Intermediate -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Intermediate">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Intermediate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Metabolomics_Pathway -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolomics_Pathway">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Metabolic_Pathway</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Minor_Metabolite -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Minor_Metabolite">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Minor_Metabolite"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Plant -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Plant">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolomics_Pathway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#SubPathway -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#SubPathway"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#SuperPathway -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#SuperPathway"/>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#Unknown -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Unknown">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Unknown"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ontology.intelligytics.com/ontology/mbo.owl#VOID -->
+
+    <owl:Class rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#VOID">
+        <rdfs:subClassOf rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolome"/>
+        <rdfs:label rdf:resource="http://ontology.intelligytics.com/ontology/mbo.owl#VOID"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://ontology.intelligytics.com/resource/MBO_3258123">
+        <mbo1:isAChEBIEnzyme rdf:resource="http://purl.obolibrary.org/obo/CHEBI_26119"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Animal"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Bacteria"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Plant"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Cofactor"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Enzyme"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#FinalPathway"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Metabolite_Class"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Minor_Metabolite"/>
+            <rdf:Description rdf:about="http://ontology.intelligytics.com/ontology/mbo.owl#Unknown"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
