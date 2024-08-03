@@ -1,0 +1,2043 @@
+@prefix : <http://clinicaltrials.gov/ctgo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix cmns-av: <https://www.omg.org/spec/Commons/AnnotationVocabulary/> .
+@base <http://clinicaltrials.gov/ctgo#> .
+
+ <http://clinicaltrials.gov/ctgo#>
+	a owl:Ontology ;
+	rdfs:label "Clinical Trials Gov Ontology" ;
+	dct:abstract "The Clinical Trials Gov Ontology (CTGO) is based on the AACT database schema for Aggregate Analysis of ClinicalTrials.gov.  AACT contains information about clinical studies that have been registered at ClinicalTrials.gov.   AACT includes all of the protocol and results data elements for studies publicly available at ClinicalTrials.gov." ;
+	dct:contributor "Scott Josephson" ;
+	dct:license "https://opensource.org/licenses/MIT"^^xsd:anyURI ;
+	cmns-av:copyrightn"Copyright (c) 2024 Scott Josephson" .
+
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+skos:definition rdf:type owl:AnnotationProperty .
+
+xsd:date rdf:type rdfs:Datatype .
+
+:administers rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :isAdministeredBy ;
+                                      rdf:type owl:FunctionalProperty ;
+                                      rdfs:domain :Principal-Investigator ;
+                                      rdfs:range :Study ;
+                                      rdfs:label "administers" .
+
+:analyzes rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :Clinical-Investigator ;
+                                   rdfs:range :Outcome-Measurement ;
+                                   rdfs:label "analyzes" .
+
+:approvedBy rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Investigational-Therapy ;
+                                     rdfs:range :Regulatory-Authority ;
+                                     rdfs:label "approved by" .
+
+:assignedTo rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Participant ;
+                                     rdfs:range :Design-Group ;
+                                     rdfs:label "assigned to" .
+
+:basedOn rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Phase ;
+                                  rdfs:range :Objective ;
+                                  rdfs:label "based on" .
+
+:canEmploy rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Umbrella-Protocol ;
+                                    rdfs:range :Randomized-Controlled-Trial ;
+                                    rdfs:label "can employ" .
+
+:carriesOut rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Clinical-Investigator ;
+                                     rdfs:range :Protocol ;
+                                     rdfs:label "carries out" .
+
+:causesAdverseEvent rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf :isAdverseEventOf ;
+                                             rdfs:domain :Intervention ;
+                                             rdfs:range :Adverse-Event ;
+                                             rdfs:label "causes adverse event" .
+
+:collects rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :Clinical-Investigator ;
+                                   rdfs:range :Outcome-Measurement ;
+                                   rdfs:label "collects" .
+
+:comparesTherapyTo rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :Phase-3 ;
+                                            rdfs:range :Investigational-Therapy ;
+                                            rdfs:label "compares therapy to" .
+
+:developsConceptFor rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Principal-Investigator ;
+                                             rdfs:range :Study ;
+                                             rdfs:label "develops concept for" .
+
+:directsRecruitmentOf rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :Principal-Investigator ;
+                                               rdfs:range :Participant ;
+                                               rdfs:label "directs recruitment of" .
+
+:evaluates rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Secondary-Objective ;
+                                    rdfs:range :Secondary-Endpoint ;
+                                    rdfs:label "evaluates" .
+
+:hasBaselineCount rdf:type owl:ObjectProperty ,
+                                                    owl:TransitiveProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Baseline-Count ;
+                                           rdfs:label "has baseline count" .
+
+:hasBrowseCondition rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Browse-Condition ;
+                                             rdfs:label "has browse condition" .
+
+:hasBrowseIntervention rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :Study ;
+                                                rdfs:range :Browse-Intervention ;
+                                                rdfs:label "has browse intervention" .
+
+:hasCalculatedValue rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Calculated-Value ;
+                                             rdfs:label "has calculated value" .
+
+:hasCentralContact rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range :Central-Contact ;
+                                            rdfs:label "has central contact" .
+
+:hasClinicalInvestigator rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range :Clinical-Investigator ;
+                                                  rdfs:label "has clinical investigator" .
+
+:hasDesign rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Study ;
+                                    rdfs:range :Design ;
+                                    rdfs:label "has design" .
+
+:hasDesignGroup rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Design ;
+                                         rdfs:range :Design-Group ;
+                                         rdfs:label "has design group" .
+
+:hasDetailedDescription rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain :Study ;
+                                                 rdfs:range :Detailed-Description ;
+                                                 rdfs:label "has detailed description" .
+
+:hasDocument rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Study ;
+                                      rdfs:range :Document ;
+                                      rdfs:label "has document" .
+
+:hasEligibility rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range :Eligibility ;
+                                         rdfs:label "has eligibility" .
+
+:hasExclusionCriteria rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :Study ;
+                                               rdfs:range :Exclusion-Criteria ;
+                                               rdfs:label "has exclusion criteria" .
+
+:hasFacility rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Study ;
+                                      rdfs:range :Facility ;
+                                      rdfs:label "has facility" .
+
+:hasFacilityContact rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Facility ;
+                                             rdfs:range :Facility-Contact ;
+                                             rdfs:label "has facility contact" .
+
+:hasFacilityInvestigator rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain :Facility ;
+                                                  rdfs:range :Facility-Investigator ;
+                                                  rdfs:label "has facility investigator" .
+
+:hasInclusionCriteria rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :Study ;
+                                               rdfs:range :Inclusion-Criteria ;
+                                               rdfs:label "has inclusion criteria" .
+:hasBehavioralIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Behavioral ;
+                                          rdfs:label "has behavioral intervention" .
+:hasBiologicalIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Biological ;
+                                          rdfs:label "has biological intervention" .
+										  
+:hasCombinationProductIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Combination-Product ;
+                                          rdfs:label "has combination product intervention" .
+:hasDeviceIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Device ;
+                                          rdfs:label "has device intervention" .
+										  
+
+:hasDiagnosticTestIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Diagnostic-Test ;
+                                          rdfs:label "has diagnostic test intervention" .
+:hasDietarySupplementIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Dietary-Supplement ;
+                                          rdfs:label "has dietary supplement intervention" .
+:hasDrugIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Drug ;
+                                          rdfs:label "has drug intervention" .
+:hasGeneticIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Genetic ;
+                                          rdfs:label "has genetic intervention" .
+:hasOtherIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Other-Intervention ;
+                                          rdfs:label "has other intervention" .
+:hasProcedureIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Procedure ;
+                                          rdfs:label "has procedure intervention" .
+:hasRadiationIntervention rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range :Radiation ;
+                                          rdfs:label "has radiation intervention" .
+:hasInterventionModel rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :Design ;
+                                               rdfs:range :Intervention-Model ;
+                                               rdfs:label "has intervention model" .
+:hasInterventionOtherName rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain :Intervention ;
+                                                   rdfs:label "has intervention other name" .
+
+:hasMeshName rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Condition ;
+                                      rdfs:range :Browse-Condition ;
+                                      rdfs:label "has mesh name" .
+
+:hasMilestone rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :Study ;
+                                       rdfs:range :Milestone ;
+                                       rdfs:label "has milestone" .
+
+:hasOtherCriteria rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Other-Criteria ;
+                                           rdfs:label "has other criteria" .
+
+:hasOtherEndpoint rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Other-Endpoint ;
+                                           rdfs:label "has other endpoint" .
+
+:hasOtherObjective rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range :Other-Objective ;
+                                            rdfs:label "has other objective" .
+
+:hasOutcomeAnalysis rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Outcome ;
+                                             rdfs:range :Outcome-Analysis ;
+                                             rdfs:label "has outcome analysis" .
+
+:hasOutcomeMeasurement rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :Outcome ;
+                                                rdfs:range :Outcome-Measurement ;
+                                                rdfs:label "has outcome measurement" .
+
+:hasOverallOfficial rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Overall-Official ;
+                                             rdfs:label "has overall offcial" .
+
+:hasParticipantFlow rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Participant-Flow ;
+                                             rdfs:label "has participant flow" .
+
+:hasPostHocEndpoint rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Post-Hoc-Endpoint ;
+                                             rdfs:label "has post hoc endpoint" .
+
+:hasPrimaryEndpoint rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Primary-Endpoint ;
+                                             rdfs:label "has primary endpoint" .
+
+:hasPrimaryObjective rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range :Primary-Objective ;
+                                              rdfs:label "has primary objective" .
+
+:hasPrincipalInvestigator rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain :Study ;
+                                                   rdfs:range :Principal-Investigator ;
+                                                   rdfs:label "has principal investigator" .
+
+:hasProtocolComponents rdf:type owl:ObjectProperty ,
+                                                         owl:TransitiveProperty ;
+                                                rdfs:domain :Protocol ;
+                                                rdfs:range :Protocol-Component ;
+                                                rdfs:label "has protocol components" .
+
+:hasRationale rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :Study ;
+                                       rdfs:label "has rationale" .
+
+:hasResponsibleParty rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range :Responsible-Party ;
+                                              rdfs:label "has responsible party" .
+
+:hasResultAgreement rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Result-Agreement ;
+                                             rdfs:label "has result agreement" .
+
+:hasResultContact rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Result-Contact ;
+                                           rdfs:label "has result contact" .
+
+:hasResultGroup rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range :Result-Group ;
+                                         rdfs:label "has result group" .
+
+:hasSecondaryEndpoint rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :Study ;
+                                               rdfs:range :Secondary-Endpoint ;
+                                               rdfs:label "has secondary endpoint" .
+
+:hasSecondaryObjective rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :Study ;
+                                                rdfs:range :Secondary-Objective ;
+                                                rdfs:label "has secondary objective" .
+
+:hasSponsor rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Study ;
+                                     rdfs:range :Sponsor ;
+                                     rdfs:label "has sponsor" .
+
+:hasStudyChair rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :Study ;
+                                        rdfs:range :Study-Chair ;
+                                        rdfs:label "has study chair" .
+
+:hasSubInvestigator rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :Study ;
+                                             rdfs:range :Sub-Investigator ;
+                                             rdfs:label "has sub investigator" .
+
+:includes rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :Platform-Protocol ;
+                                   rdfs:range [ rdf:type owl:Restriction ;
+                                                owl:onProperty :includes ;
+                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                owl:onClass :Adaptive-Design
+                                              ] ;
+                                   rdfs:label "includes" .
+
+:isAdministeredBy rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Principal-Investigator ;
+                                           rdfs:label "is administered by" .
+
+:isMemberOf rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Clinical-Investigator ,
+                                                 :Principal-Investigator ,
+                                                 :Study-Chair ,
+                                                 :Sub-Investigator ;
+                                     rdfs:range :Site-Team ;
+                                     rdfs:label "is member of" .
+
+:locatedIn rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Facility ;
+                                    rdfs:range :Country ;
+                                    rdfs:label "located in" .
+
+:managesProcess rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Principal-Investigator ;
+                                         rdfs:range :Informed-Consent ;
+                                         rdfs:label "manages process" .
+
+:monitoredBy rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Interventional-Study-Design ;
+                                      rdfs:range :Data-Monitoring-Committee ;
+                                      rdfs:label "monitored by" .
+
+:monitorsAdverseEffectsOf rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain :Phase-3 ;
+                                                   rdfs:range :Adverse-Event ;
+                                                   rdfs:label "monitors adverse effects of" .
+
+:monitorsSafety rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Clinical-Investigator ;
+                                         rdfs:range :Safety ;
+                                         rdfs:label "monitors safety" .
+
+:reportsResultsOf rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Clinical-Investigator ;
+                                           rdfs:range :Study ;
+                                           rdfs:label "reports results of" .
+
+:studiesCondition rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range :Condition ;
+                                           rdfs:label "studies condition" .
+
+:submitsProtocolTo rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :Principal-Investigator ;
+                                            rdfs:range :Institutional-Review-Board ;
+                                            rdfs:label "submits protocol to" .
+
+:supervises rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Principal-Investigator ;
+                                     rdfs:range :Study ;
+                                     rdfs:label "supervises" .
+
+:treats rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :Intervention ;
+                                 rdfs:range :Condition ;
+                                 rdfs:label "treats" .
+
+:usesDataFor rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Sponsor ;
+                                      rdfs:range :FDA ;
+                                      rdfs:label "uses data for" .
+
+:usesStrategy rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :Intervention ;
+                                       rdfs:range :Intervention-Model ;
+                                       rdfs:label "uses strategy" .
+
+:withdrewFrom rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :Drop-Withdrawl ;
+                                       rdfs:range :Study ;
+                                       rdfs:label "withdrew from" .
+
+:writesProtocol rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :Principal-Investigator ;
+                                         rdfs:range :Protocol ;
+                                         rdfs:label "writes protocol" .
+
+:acronym rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Study ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "acronym" .
+
+:actual-duration rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Calculated-Value ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "actual duration" .
+
+:adverse-event-term rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Adverse-Event ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "adverse event term" .
+
+:affiliation rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Responsible-Party ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "affiliation" .
+
+:agency-class rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Sponsor ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "agency class" .
+
+:agreement rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Result-Agreement ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "agreement" .
+
+:allocation rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Design ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "allocation" .
+
+:anticipated-posting-date rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain :Other-Endpoint ,
+                                                               :Post-Hoc-Endpoint ,
+                                                               :Primary-Endpoint ,
+                                                               :Secondary-Endpoint ;
+                                                   rdfs:range xsd:date ;
+                                                   rdfs:label "anticipated posting date" .
+
+:anticipated-posting-month-year rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain :Other-Endpoint ,
+                                                                     :Post-Hoc-Endpoint ,
+                                                                     :Primary-Endpoint ,
+                                                                     :Secondary-Endpoint ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "anticipated posting month year" .
+
+:assessment rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Adverse-Event ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "assessment" .
+
+:baseline-population rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "baseline population" .
+
+:biospec-description rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "biospec description" .
+
+:biospec-retention rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "biospec retention" .
+
+:brief-title rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Study ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "brief title" .
+
+:caregiver-masked rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Design ;
+                                           rdfs:range xsd:boolean ;
+                                           rdfs:label "caregiver masked" .
+
+:category rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :Baseline_Measurement ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "category" .
+
+:central-contact-type rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Central-Contact ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "central contact type" .
+
+:ci-lower-limit rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Outcome-Analysis ;
+                                         rdfs:range xsd:decimal ;
+                                         rdfs:label "ci lower limit" .
+
+:ci-n-sides rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Outcome-Analysis ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "ci n sides" .
+
+:ci-percent rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Outcome-Analysis ;
+                                     rdfs:range xsd:decimal ;
+                                     rdfs:label "ci percent" .
+
+:ci-upper-limit rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Outcome-Analysis ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "ci upper limit" .
+
+:ci-upper-limit-na-comment rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain :Outcome-Analysis ;
+                                                    rdfs:range xsd:string ;
+                                                    rdfs:label "ci upper limit na comment" .
+
+:city rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Facility ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "city" .
+
+:classification rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Baseline_Measurement ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "classification" .
+
+:comment rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Document ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "comment" .
+
+:completion-date rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range xsd:date ;
+                                          rdfs:label "completion date" .
+
+:completion-date-type rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Study ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "completion date type" .
+
+:completion-month-year rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Study ;
+                                                rdfs:range xsd:string ;
+                                                rdfs:label "completion month year" .
+
+:count rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Baseline-Count ;
+                                rdfs:range xsd:integer ;
+                                rdfs:label "count" .
+
+:country rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Facility ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "country" .
+
+:ctgov-group-code rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Adverse-Event ,
+                                                       :Baseline-Count ,
+                                                       :Baseline_Measurement ,
+                                                       :Drop-Withdrawl ,
+                                                       :Milestone ,
+                                                       :Outcome-Measurement ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "ctgov group code" .
+
+:default-assessment rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Adverse-Event ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "default assessment" .
+
+:default-vocab rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :Adverse-Event ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:label "default vocab" .
+
+:description rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Adverse-Event ,
+                                                  :Baseline_Measurement ,
+                                                  :Design-Group ,
+                                                  :Detailed-Description ,
+                                                  :Intervention ,
+                                                  :Milestone ,
+                                                  :Other-Endpoint ,
+                                                  :Other-Objective ,
+                                                  :Outcome-Measurement ,
+                                                  :Post-Hoc-Endpoint ,
+                                                  :Primary-Endpoint ,
+                                                  :Primary-Objective ,
+                                                  :Result-Group ,
+                                                  :Secondary-Endpoint ,
+                                                  :Secondary-Objective ,
+                                                  :Study ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "description" .
+
+:dispersion-lower-limit rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :Baseline_Measurement ,
+                                                             :Outcome-Measurement ;
+                                                 rdfs:range xsd:decimal ;
+                                                 rdfs:label "dispersion lower limit" .
+
+:dispersion-type rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Baseline_Measurement ,
+                                                      :Other-Endpoint ,
+                                                      :Outcome-Analysis ,
+                                                      :Outcome-Measurement ,
+                                                      :Post-Hoc-Endpoint ,
+                                                      :Primary-Endpoint ,
+                                                      :Secondary-Endpoint ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "dispersion type" .
+
+:dispersion-upper-limit rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :Baseline_Measurement ,
+                                                             :Outcome-Measurement ;
+                                                 rdfs:range xsd:decimal ;
+                                                 rdfs:label "dispersion upper limit" .
+
+:dispersion-value rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Baseline_Measurement ,
+                                                       :Outcome-Analysis ,
+                                                       :Outcome-Measurement ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "dispersion value" ;
+                                           rdfs:seeAlso "For table: Outcome_Analyses this is decimal data type" .
+
+:dispersion-value-num rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Baseline_Measurement ,
+                                                           :Outcome-Measurement ;
+                                               rdfs:range xsd:decimal ;
+                                               rdfs:label "dispersion value num" .
+
+:disposition-first-posted-date rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain :Study ;
+                                                        rdfs:range xsd:date ;
+                                                        rdfs:label "disposition first posted date" .
+
+:disposition-first-posted-date-type rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain :Study ;
+                                                             rdfs:range xsd:string ;
+                                                             rdfs:label "disposition first posted date type" .
+
+:disposition-first-submitted-date rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain :Study ;
+                                                           rdfs:range xsd:date ;
+                                                           rdfs:label "disposition first submitted date" .
+
+:document-id rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Document ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "document id" .
+
+:document-type rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :Document ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:label "document type" .
+
+:downcase-mesh-term rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Browse-Condition ,
+                                                         :Browse-Intervention ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "downcase mesh term" .
+
+:downcase-name rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :Condition ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:label "downcase name" .
+
+:drop-withdrawl-count rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Drop-Withdrawl ;
+                                               rdfs:range xsd:integer ;
+                                               rdfs:label "drop withdrawl count" .
+
+:email rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Central-Contact ,
+                                            :Facility-Contact ,
+                                            :Result-Contact ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "email" .
+
+:enrollment rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Study ;
+                                     rdfs:range xsd:integer ;
+                                     rdfs:label "enrollment" .
+
+:enrollment-type rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "enrollment type" .
+
+:estimate-description rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Outcome-Analysis ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "estimate description" .
+
+:event-count rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Adverse-Event ;
+                                      rdfs:range xsd:integer ;
+                                      rdfs:label "event count" .
+
+:event-type rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Adverse-Event ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "event type" .
+
+:expanded-access-type-individual rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain :Study ;
+                                                          rdfs:range xsd:boolean ;
+                                                          rdfs:label "expanded access type individual" .
+
+:expanded-access-type-intermediate rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain :Study ;
+                                                            rdfs:range xsd:boolean ;
+                                                            rdfs:label "expanded access type intermediate" .
+
+:expanded-access-type-treatment rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain :Study ;
+                                                         rdfs:range xsd:boolean ;
+                                                         rdfs:label "expanded access type treatment" .
+
+:explanation-of-na rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Baseline_Measurement ,
+                                                        :Outcome-Measurement ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "explanation of na" .
+
+:facility-contact-type rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Facility ;
+                                                rdfs:range xsd:string ;
+                                                rdfs:label "facility contact type" .
+
+:facility-id rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Facility ,
+                                                  :Principal-Investigator ,
+                                                  :Study-Chair ,
+                                                  :Sub-Investigator ;
+                                      rdfs:range xsd:integer ;
+                                      rdfs:label "facility id" .
+
+:frequency-threshold rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Adverse-Event ;
+                                              rdfs:range xsd:integer ;
+                                              rdfs:label "frequency threshold" .
+
+:gender rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Exclusion-Criteria ,
+                                             :Inclusion-Criteria ,
+                                             :Other-Criteria ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "gender" .
+
+:gender-based rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Exclusion-Criteria ,
+                                                   :Inclusion-Criteria ,
+                                                   :Other-Criteria ;
+                                       rdfs:range xsd:boolean ;
+                                       rdfs:label "gender based" .
+
+:gender-description rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Exclusion-Criteria ,
+                                                         :Inclusion-Criteria ,
+                                                         :Other-Criteria ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "gender description" .
+
+:group-description rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Outcome-Analysis ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "group description" .
+
+:group-type rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Design-Group ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "group type" .
+
+:has-dmc rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Study ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:label "has dmc" .
+
+:has-expanded-access rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:label "has expanded access" .
+
+:has-single-facility rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Calculated-Value ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:label "has single facility" .
+
+:has-us-facility rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Calculated-Value ;
+                                          rdfs:range xsd:boolean ;
+                                          rdfs:label "has us facility" .
+
+:healthy-volunteers rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Exclusion-Criteria ,
+                                                         :Inclusion-Criteria ,
+                                                         :Other-Criteria ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "healthy volunteers" .
+
+:intervention-id rdf:type owl:DatatypeProperty ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "intervention id" .
+
+:intervention-model rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Design ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "intervention model" .
+
+:intervention-model-description rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain :Design ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "intervention model description" .
+
+:intervention-other-name rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Intervention ;
+                                                  rdfs:range xsd:string ;
+                                                  rdfs:label "intervention other name" .
+
+:intervention-type rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Intervention ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "intervention type" .
+
+:investigator-masked rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Design ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:label "investigator masked" .
+
+:ipd-access-criteria rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Study ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "ipd access criteria" .
+
+:ipd-time-frame rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "ipd time frame" .
+
+:ipd-url rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Study ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "ipd url" .
+
+:is-fda-regulated-device rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:boolean ;
+                                                  rdfs:label "is fda regulated device" .
+
+:is-fda-regulated-drug rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Study ;
+                                                rdfs:range xsd:boolean ;
+                                                rdfs:label "is fda regulated drug" .
+
+:is-ppsd rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Study ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:label "is ppsd" .
+
+:is-unapproved-device rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Study ;
+                                               rdfs:range xsd:boolean ;
+                                               rdfs:label "is unapproved device" .
+
+:is-us-export rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Study ;
+                                       rdfs:range xsd:boolean ;
+                                       rdfs:label "is us export" .
+
+:last-known-status rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "last known status" .
+
+:last-update-posted-date rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:date ;
+                                                  rdfs:label "last update posted date" .
+
+:last-update-posted-date-type rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain :Study ;
+                                                       rdfs:range xsd:string ;
+                                                       rdfs:label "last update posted date type" .
+
+:last-update-submitted-date rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain :Study ;
+                                                     rdfs:range xsd:date ;
+                                                     rdfs:label "last update submitted date" .
+
+:last-update-submitted-qc-date rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain :Study ;
+                                                        rdfs:range xsd:date ;
+                                                        rdfs:label "last update submitted qc date" .
+
+:lead-or-collaborator rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Sponsor ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "lead or collaborator" .
+
+:limitations-and-caveats rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:string ;
+                                                  rdfs:label "limitations and caveats" .
+
+:masking rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Design ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "masking" .
+
+:masking-description rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Design ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "masking description" .
+
+:maximum-age rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Exclusion-Criteria ,
+                                                  :Inclusion-Criteria ,
+                                                  :Other-Criteria ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "maximum age" .
+
+:maximum-age-num rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Calculated-Value ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "maximum age num" .
+
+:maximum-age-unit rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Calculated-Value ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "maximum age unit" .
+
+:measure rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Other-Objective ,
+                                              :Primary-Objective ,
+                                              :Secondary-Objective ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:label "measure" .
+
+:mesh-term rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Browse-Condition ,
+                                                :Browse-Intervention ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "mesh term" .
+
+:mesh-type rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :Browse-Condition ,
+                                                :Browse-Intervention ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "mesh type" .
+
+:method rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Outcome-Analysis ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "method" .
+
+:method-description rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Outcome-Analysis ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "method description" .
+
+:milestone-count rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Milestone ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "milestone count" .
+
+:minimum-age rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Exclusion-Criteria ,
+                                                  :Inclusion-Criteria ,
+                                                  :Other-Criteria ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "minimum age" .
+
+:minimum-age-num rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Calculated-Value ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "minimum age num" .
+
+:minimum-age-unit rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Calculated-Value ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "minimum age unit" .
+
+:months-to-report-results rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain :Calculated-Value ;
+                                                   rdfs:range xsd:integer ;
+                                                   rdfs:label "months to report results" .
+
+:name rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Central-Contact ,
+                                           :Country ,
+                                           :Facility ,
+                                           :Facility-Contact ,
+                                           :Overall-Official ,
+                                           :Result-Contact ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "name" .
+
+:nct-id rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Study ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "nct id" .
+
+:nlm-download-date rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Calculated-Value ;
+                                            rdfs:range xsd:date ;
+                                            rdfs:label "nlm download date" .
+
+:nlm-download-date-description rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain :Study ;
+                                                        rdfs:range xsd:string ;
+                                                        rdfs:label "nlm download date description" .
+
+:non-inferiority-description rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :Outcome-Analysis ;
+                                                      rdfs:range xsd:string ;
+                                                      rdfs:label "non inferiority description" .
+
+:non-inferiority-type rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Outcome-Analysis ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "non inferiority type" .
+
+:number-of-arms rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range xsd:integer ;
+                                         rdfs:label "number of arms" .
+
+:number-of-facilities rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Calculated-Value ;
+                                               rdfs:range xsd:integer ;
+                                               rdfs:label "number of facilities" .
+
+:number-of-groups rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range xsd:integer ;
+                                           rdfs:label "number of groups" .
+
+:number-of-nsae-subjects rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Calculated-Value ;
+                                                  rdfs:range xsd:integer ;
+                                                  rdfs:label "number of nsae subjects" .
+
+:number-of-other-outcomes-to-measure rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain :Calculated-Value ;
+                                                              rdfs:range xsd:integer ;
+                                                              rdfs:label "number of other outcomes to measure" .
+
+:number-of-primary-outcomes-to-measure rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain :Calculated-Value ;
+                                                                rdfs:range xsd:integer ;
+                                                                rdfs:label "number of primary outcomes to measure" .
+
+:number-of-sae-subjects rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :Calculated-Value ;
+                                                 rdfs:range xsd:integer ;
+                                                 rdfs:label "number of sae subjects" .
+
+:number-of-secondary-outcomes-to-measure rdf:type owl:DatatypeProperty ;
+                                                                  rdfs:domain :Calculated-Value ;
+                                                                  rdfs:range xsd:integer ;
+                                                                  rdfs:label "number of secondary outcomes to measure" .
+
+:observational-model rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Design ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "observational model" .
+
+:official-title rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "official title" .
+
+:old-name-title rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Responsible-Party ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "old name title" .
+
+:organ-system rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Adverse-Event ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "organ system" .
+
+:organization rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Responsible-Party ,
+                                                   :Result-Contact ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "organization" .
+
+:other-analysis-description rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain :Outcome-Analysis ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:label "other analysis description" .
+
+:other-details rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :Result-Agreement ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:label "other details" .
+
+:outcome-id rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Outcome-Analysis ,
+                                                 :Outcome-Measurement ;
+                                     rdfs:range xsd:integer ;
+                                     rdfs:label "outcome id" .
+
+:outcome-measurements-classification rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain :Outcome-Measurement ;
+                                                              rdfs:range xsd:string ;
+                                                              rdfs:label "outcome measurements classification" .
+
+:outcome-type rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :Design-Outcome ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:label "outcome type" .
+
+:outcomes-assessor-masked rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain :Design ;
+                                                   rdfs:range xsd:boolean ;
+                                                   rdfs:label "outcomes assessor masked" .
+
+:overall-status rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Study ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:label "overall status" .
+
+:p-value rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Outcome-Analysis ;
+                                  rdfs:range xsd:float ;
+                                  rdfs:label "p value" .
+
+:p-value-description rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :Outcome-Analysis ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:label "p value description" .
+
+:p-value-modifier rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Outcome-Analysis ;
+                                           rdfs:range xsd:float ;
+                                           rdfs:label "p value modifier" .
+
+:param-type rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Baseline_Measurement ,
+                                                 :Other-Endpoint ,
+                                                 :Outcome-Analysis ,
+                                                 :Outcome-Measurement ,
+                                                 :Post-Hoc-Endpoint ,
+                                                 :Primary-Endpoint ,
+                                                 :Secondary-Endpoint ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "param type" .
+
+:param-value rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Baseline_Measurement ,
+                                                  :Outcome ,
+                                                  :Outcome-Analysis ,
+                                                  :Outcome-Measurement ;
+                                      rdfs:range xsd:decimal ;
+                                      rdfs:label "param value" .
+
+:param-value-num rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Baseline_Measurement ,
+                                                      :Outcome-Measurement ;
+                                          rdfs:range xsd:decimal ;
+                                          rdfs:label "param value num" .
+
+:period rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Drop-Withdrawl ,
+                                             :Milestone ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "period" .
+
+:phase rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Study ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "phase" .
+
+:phone rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Central-Contact ,
+                                            :Facility-Contact ,
+                                            :Result-Contact ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "phone" .
+
+:pi-employee rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Result-Agreement ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "pi employee" .
+
+:plan-to-share-ipd rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "plan to share ipd" .
+
+:population rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Exclusion-Criteria ,
+                                                 :Inclusion-Criteria ,
+                                                 :Other-Criteria ,
+                                                 :Other-Endpoint ,
+                                                 :Other-Objective ,
+                                                 :Post-Hoc-Endpoint ,
+                                                 :Primary-Endpoint ,
+                                                 :Primary-Objective ,
+                                                 :Secondary-Endpoint ,
+                                                 :Secondary-Objective ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "population" .
+
+:pre-assignment-details rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :Participant-Flow ;
+                                                 rdfs:range xsd:string ;
+                                                 rdfs:label "pre assignment details" .
+
+:primary-completion-date rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:date .
+
+:primary-completion-date-month-year rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain :Study ;
+                                                             rdfs:range xsd:string ;
+                                                             rdfs:label "primary completion date month year" .
+
+:primary-completion-date-type rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain :Study ;
+                                                       rdfs:range xsd:string ;
+                                                       rdfs:label "primary completion date type" .
+
+:primary-purpose rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Design ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "primary purpose" .
+
+:reason rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Drop-Withdrawl ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "reason" .
+
+:recruitment-status rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :Recruitment ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "recruitment status" .
+
+:reecruitment-details rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :Participant-Flow ;
+                                               rdfs:range xsd:string ;
+                                               rdfs:label "recruitment details" .
+
+:registered-in-calendar-year rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :Calculated-Value ;
+                                                      rdfs:range xsd:integer ;
+                                                      rdfs:label "registered in calendar year" .
+
+:removed rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Country ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:label "removed" .
+
+:responsible-party-type rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :Responsible-Party ;
+                                                 rdfs:range xsd:string ;
+                                                 rdfs:label "responsible party type" .
+
+:restriction-type rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Result-Agreement ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "restriction type" .
+
+:restrictive-agreement rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Result-Agreement ;
+                                                rdfs:range xsd:string ;
+                                                rdfs:label "restrictive agreement" .
+
+:result-group-id rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Adverse-Event ,
+                                                      :Baseline-Count ,
+                                                      :Baseline_Measurement ,
+                                                      :Drop-Withdrawl ,
+                                                      :Milestone ,
+                                                      :Outcome-Analysis ,
+                                                      :Outcome-Measurement ;
+                                          rdfs:range xsd:integer ;
+                                          rdfs:label "result group id" .
+
+:result-type rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Result-Group ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "result type" .
+
+:results-first-posted-date rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain :Study ;
+                                                    rdfs:range xsd:date ;
+                                                    rdfs:label "results first posted date" .
+
+:results-first-posted-date-type rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain :Study ;
+                                                         rdfs:range xsd:string ;
+                                                         rdfs:label "results first posted date type" .
+
+:results-first-submitted-date rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain :Study ;
+                                                       rdfs:range xsd:date ;
+                                                       rdfs:label "results first submitted date" .
+
+:results-first-submitted-qc-date rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain :Study ;
+                                                          rdfs:range xsd:date ;
+                                                          rdfs:label "results first submitted qc date" .
+
+:role rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Facility-Investigator ,
+                                           :Overall-Official ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "role" .
+
+:sampling-method rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Exclusion-Criteria ,
+                                                      :Inclusion-Criteria ,
+                                                      :Other-Criteria ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "sampling method" .
+
+:scope rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Baseline-Count ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "scope" .
+
+:source rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Study ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "source" .
+
+:start-date rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Study ;
+                                     rdfs:range xsd:date ;
+                                     rdfs:label "start date" .
+
+:start-date-type rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "start date type" .
+
+:start-month-year rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Study ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "start month year" .
+
+:state rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Facility ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "state" .
+
+:status rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :Facility ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "status" .
+
+:study-first-posted-date rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:date ;
+                                                  rdfs:label "study first posted date" .
+
+:study-first-posted-date-type rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain :Study ;
+                                                       rdfs:range xsd:string ;
+                                                       rdfs:label "study first posted date type" .
+
+:study-first-submitted-date rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain :Study ;
+                                                     rdfs:range xsd:date ;
+                                                     rdfs:label "study first submitted date" .
+
+:study-first-submitted-qc-date rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain :Study ;
+                                                        rdfs:range xsd:date ;
+                                                        rdfs:label "study first submitted qc date" .
+
+:study-type rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Study ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "study type" .
+
+:subject-masked rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :Design ;
+                                         rdfs:range xsd:boolean ;
+                                         rdfs:label "subject masked" .
+
+:subjects-affected rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Adverse-Event ;
+                                            rdfs:range xsd:integer ;
+                                            rdfs:label "subjects affected" .
+
+:subjects-at-risk rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Adverse-Event ;
+                                           rdfs:range xsd:integer ;
+                                           rdfs:label "subjects at risk" .
+
+:target-duration rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :Study ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:label "target duration" .
+
+:time-frame rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Adverse-Event ,
+                                                 :Other-Endpoint ,
+                                                 :Other-Objective ,
+                                                 :Post-Hoc-Endpoint ,
+                                                 :Primary-Endpoint ,
+                                                 :Primary-Objective ,
+                                                 :Secondary-Endpoint ,
+                                                 :Secondary-Objective ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "time frame" .
+
+:time-perspective rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :Design ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:label "time perspective" .
+
+:title rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Baseline_Measurement ,
+                                            :Design-Group ,
+                                            :Milestone ,
+                                            :Other-Endpoint ,
+                                            :Outcome-Measurement ,
+                                            :Post-Hoc-Endpoint ,
+                                            :Primary-Endpoint ,
+                                            :Responsible-Party ,
+                                            :Result-Group ,
+                                            :Secondary-Endpoint ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "title" .
+
+:units rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Baseline-Count ,
+                                            :Baseline_Measurement ,
+                                            :Other-Endpoint ,
+                                            :Outcome-Measurement ,
+                                            :Post-Hoc-Endpoint ,
+                                            :Primary-Endpoint ,
+                                            :Secondary-Endpoint ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "units" .
+
+:units-analyze rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :Other-Endpoint ,
+                                                    :Post-Hoc-Endpoint ,
+                                                    :Primary-Endpoint ,
+                                                    :Secondary-Endpoint ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:label "units analyze" .
+
+:url rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Document ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "url" .
+
+:verification-date rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :Study ;
+                                            rdfs:range xsd:date ;
+                                            rdfs:label "verification date" .
+
+:verification-month-year rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :Study ;
+                                                  rdfs:range xsd:string ;
+                                                  rdfs:label "verification month year" .
+
+:vocab rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Adverse-Event ;
+                                rdfs:range xsd:string ;
+                                rdfs:label "vocab" .
+
+:were-results-reported rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :Calculated-Value ;
+                                                rdfs:range xsd:boolean ;
+                                                rdfs:label "were results reported" .
+
+:why-stopped rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :Study ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "why stopped" .
+
+:zip rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Facility ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "zip" .
+
+
+:Active-Comparator-Arm rdf:type owl:Class ;
+                                                rdfs:subClassOf :Arm ;
+                                                rdfs:label "Active Comparator Arm" .
+
+:Adaptive-Design rdf:type owl:Class ;
+                                          rdfs:subClassOf :Design ;
+                                          rdfs:label "Adaptive Design" .
+
+:Adverse-Event rdf:type owl:Class ;
+                                        rdfs:subClassOf :Result-Component ;
+                                        rdfs:label "Adverse Event" ;
+                                        skos:altLabel "Reported Event" .
+
+:Arm rdf:type owl:Class ;
+                              rdfs:label "Arm" .
+
+:Assay rdf:type owl:Class ;
+                                rdfs:subClassOf :Result-Component ;
+                                rdfs:label "Assay" .
+
+:Baseline-Count rdf:type owl:Class ;
+                                         rdfs:subClassOf :Result-Component ;
+                                         rdfs:label "Baseline Count" .
+
+:Baseline_Measurement rdf:type owl:Class ;
+                                               rdfs:subClassOf :Result-Component ;
+                                               rdfs:label "Baseline Measurement" .
+
+:Basket-Protocol rdf:type owl:Class ;
+                                          rdfs:subClassOf :Master-Protocol ;
+                                          rdfs:label "Basket Protocol" .
+
+:Behavioral rdf:type owl:Class ;
+                                     rdfs:subClassOf :Intervention ;
+                                     rdfs:label "Behavioral" .
+
+:Bioassay rdf:type owl:Class ;
+                                   rdfs:subClassOf :Assay ;
+                                   rdfs:label "Bioassay" .
+
+:Biological rdf:type owl:Class ;
+                                     rdfs:subClassOf :Intervention ;
+                                     rdfs:label "Biological" ;
+                                     skos:altLabel "Biologics" .
+
+:Browse-Condition rdf:type owl:Class ;
+                                           rdfs:subClassOf :Protocol-Component ;
+                                           rdfs:label "Browse Condition" ;
+                                           skos:definition "NLM uses an internal algorithm to assess the data entered for a study and creates a list of standard MeSH terms that describe the condition(s) being addressed by the clinical trial. This table provides the results of NLM's assessment" .
+
+:Browse-Intervention rdf:type owl:Class ;
+                                              rdfs:subClassOf :Protocol-Component ;
+                                              rdfs:label "Browse Intervention" .
+
+:Calculated-Value rdf:type owl:Class ;
+                                           rdfs:subClassOf :Protocol-Component ;
+                                           rdfs:label "Calculated Value" .
+
+:Central-Contact rdf:type owl:Class ;
+                                          rdfs:subClassOf :Protocol-Component ;
+                                          rdfs:label "Central Contact" .
+
+:Clinical-Investigator rdf:type owl:Class ;
+                                                rdfs:subClassOf :Facility-Investigator ;
+                                                rdfs:label "Clinical Investigator" .
+
+:Combination-Product rdf:type owl:Class ;
+                                              rdfs:subClassOf :Intervention ;
+                                              rdfs:label "Combination Product" .
+
+:Condition rdf:type owl:Class ;
+                                    rdfs:subClassOf :Protocol-Component ;
+                                    rdfs:label "Condition" .
+
+:Control-Arm rdf:type owl:Class ;
+                                      rdfs:subClassOf :Arm ;
+                                      rdfs:label "Control Arm" .
+
+:Country rdf:type owl:Class ;
+                                  rdfs:subClassOf :Protocol-Component ;
+                                  rdfs:label "Country" .
+
+:Crossover-Study rdf:type owl:Class ;
+                                          rdfs:subClassOf :Design ;
+                                          rdfs:label "Crossover Study" .
+
+:Data-Monitoring rdf:type owl:Class ;
+                                          rdfs:subClassOf :Protocol-Component ;
+                                          rdfs:label "Data Monitoring" .
+
+:Data-Monitoring-Committee rdf:type owl:Class ;
+                                                    rdfs:label "Data Monitoring Committee" ;
+                                                    skos:altLabel "DMC" ,
+                                                                                                   "DSMB" ,
+                                                                                                   "Data Safety and Monitoring Board" .
+
+:Demographics rdf:type owl:Class ;
+                                       rdfs:label "Demographics" .
+
+:Design rdf:type owl:Class ;
+                                 rdfs:subClassOf :Protocol-Component ;
+                                 rdfs:label "Design" .
+
+:Design-Group rdf:type owl:Class ;
+                                       rdfs:subClassOf :Protocol-Component ;
+                                       rdfs:label "Design Group" .
+
+:Design-Outcome rdf:type owl:Class ;
+                                         rdfs:subClassOf :Protocol-Component ;
+                                         rdfs:label "Design Outcome" .
+
+:Detailed-Description rdf:type owl:Class ;
+                                               rdfs:subClassOf :Protocol-Component ;
+                                               rdfs:label "Detailed Description" .
+
+:Device rdf:type owl:Class ;
+                                 rdfs:subClassOf :Intervention ;
+                                 rdfs:label "Device" .
+
+:Diagnostic-Test rdf:type owl:Class ;
+                                          rdfs:subClassOf :Intervention ;
+                                          rdfs:label "Diagnostic Test" .
+
+:Dietary-Supplement rdf:type owl:Class ;
+                                             rdfs:subClassOf :Intervention ;
+                                             rdfs:label "Dietary Supplement" .
+
+:Document rdf:type owl:Class ;
+                                   rdfs:subClassOf :Result-Component ;
+                                   rdfs:label "Document" .
+
+:Double-Blind-Study rdf:type owl:Class ;
+                                             rdfs:subClassOf :Masking ;
+                                             rdfs:label "Double Blind Study" .
+
+:Drop-Withdrawl rdf:type owl:Class ;
+                                         rdfs:subClassOf :Result-Component ;
+                                         rdfs:label "Drop Withdrawl" .
+
+:Drug rdf:type owl:Class ;
+                               rdfs:subClassOf :Intervention ;
+                               rdfs:label "Drug" .
+
+:Duration-Of-Effect rdf:type owl:Class ;
+                                             rdfs:subClassOf :Trial-Attribute ;
+                                             rdfs:label "Duration Of Effect" ;
+                                             skos:altLabel "Duration Of Use" .
+
+:Effectiveness rdf:type owl:Class ;
+                                        rdfs:subClassOf :Trial-Attribute ;
+                                        rdfs:label "Effectiveness" .
+
+:Efficacy rdf:type owl:Class ;
+                                   rdfs:subClassOf :Trial-Attribute ;
+                                   rdfs:label "Efficacy" .
+
+:Eligibility rdf:type owl:Class ;
+                                      rdfs:subClassOf :Protocol-Component ;
+                                      rdfs:label "Eligibility" .
+
+:Endpoint rdf:type owl:Class ;
+                                   rdfs:subClassOf :Outcome ;
+                                   rdfs:label "Endpoint" .
+
+:Exclusion-Criteria rdf:type owl:Class ;
+                                             rdfs:subClassOf :Eligibility ;
+                                             owl:disjointWith :Inclusion-Criteria ;
+                                             rdfs:label "Exclusion Criteria" .
+
+:Experimental-Arm rdf:type owl:Class ;
+                                           rdfs:subClassOf :Arm ;
+                                           rdfs:label "Experimental Arm" .
+
+:FDA rdf:type owl:Class ;
+                              rdfs:subClassOf :Regulatory-Authority ;
+                              rdfs:label "FDA" ;
+                              skos:altLabel "Food and Drug Administration" ,
+                                                                             "USFDA" .
+
+:Facility rdf:type owl:Class ;
+                                   rdfs:subClassOf :Protocol-Component ;
+                                   rdfs:label "Facility" .
+
+:Facility-Contact rdf:type owl:Class ;
+                                           rdfs:subClassOf :Protocol-Component ;
+                                           rdfs:label "Facility Contact" .
+
+:Facility-Investigator rdf:type owl:Class ;
+                                                rdfs:subClassOf :Protocol-Component ;
+                                                rdfs:label "Facility Investigator" .
+
+:Factorial-Assignment rdf:type owl:Class ;
+                                               rdfs:subClassOf :Intervention-Model ;
+                                               rdfs:label "Factorial Assignment" .
+
+:Genetic rdf:type owl:Class ;
+                                  rdfs:subClassOf :Intervention ;
+                                  rdfs:label "Genetic" .
+
+:Inclusion-Criteria rdf:type owl:Class ;
+                                             rdfs:subClassOf :Eligibility ;
+                                             rdfs:label "Inclusion Criteria" .
+
+:Informed-Consent rdf:type owl:Class ;
+                                           rdfs:subClassOf :Recruitment ;
+                                           rdfs:label "Informed Consent" .
+
+:Institutional-Review-Board rdf:type owl:Class ;
+                                                     rdfs:label "Institutional Review Board" ;
+                                                     skos:altLabel "Ethical Review Board" ,
+                                                                                                    "IRB" .
+
+:Intervention rdf:type owl:Class ;
+                                       rdfs:subClassOf :Protocol-Component ;
+                                       rdfs:label "Intervention" .
+
+:Intervention-Model rdf:type owl:Class ;
+                                             rdfs:subClassOf :Design ;
+                                             rdfs:label "Intervention Model" .
+
+:Interventional-Study-Design rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Design ;
+                                                      rdfs:label "Interventional Study Design" .
+
+:Investigational-Therapy rdf:type owl:Class ;
+                                                  rdfs:label "Investigational Therapy" .
+
+:Masking rdf:type owl:Class ;
+                                  rdfs:subClassOf :Design ;
+                                  rdfs:label "Masking" .
+
+:Master-Protocol rdf:type owl:Class ;
+                                          rdfs:subClassOf :Protocol ;
+                                          rdfs:label "Master Protocol" .
+
+:Means-Of-Administration rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Trial-Attribute ;
+                                                  rdfs:label "Means Of Administration" .
+
+:Milestone rdf:type owl:Class ;
+                                    rdfs:subClassOf :Result-Component ;
+                                    rdfs:label "Milestone" .
+
+:Objective rdf:type owl:Class ;
+                                    rdfs:subClassOf :Design-Outcome ;
+                                    rdfs:label "Objective" ;
+                                    skos:altLabel "Study Outcome Measure" .
+
+:Observational-Study-Design rdf:type owl:Class ;
+                                                     rdfs:subClassOf :Design ;
+                                                     rdfs:label "Observational Study Design" .
+
+:Other-Criteria rdf:type owl:Class ;
+                                         rdfs:subClassOf :Eligibility ;
+                                         rdfs:label "Other Criteria" .
+
+:Other-Endpoint rdf:type owl:Class ;
+                                         rdfs:subClassOf :Endpoint ;
+                                         rdfs:label "Other Endpoint" ;
+                                         skos:altLabel "Other Pre-Specified" .
+
+:Other-Intervention rdf:type owl:Class ;
+                                             rdfs:subClassOf :Intervention ;
+                                             rdfs:label "Other Intervention" .
+
+:Other-Objective rdf:type owl:Class ;
+                                          rdfs:subClassOf :Objective ;
+                                          rdfs:label "Other Objective" .
+
+:Outcome rdf:type owl:Class ;
+                                  rdfs:subClassOf :Result-Component ;
+                                  rdfs:label "Outcome" .
+
+:Outcome-Analysis rdf:type owl:Class ;
+                                           rdfs:subClassOf :Result-Component ;
+                                           rdfs:label "Outcome Analysis" .
+
+:Outcome-Measurement rdf:type owl:Class ;
+                                              rdfs:subClassOf :Result-Component ;
+                                              rdfs:label "Outcome Measurement" .
+
+:Overall-Official rdf:type owl:Class ;
+                                           rdfs:subClassOf :Protocol-Component ;
+                                           rdfs:label "Overall Official" .
+
+:Parallel-Assignment rdf:type owl:Class ;
+                                              rdfs:subClassOf :Intervention-Model ;
+                                              rdfs:label "Parallel Assignment" .
+
+:Participant rdf:type owl:Class ;
+                                      rdfs:label "Participant" ;
+                                      skos:altLabel "clinical study participant" ,
+                                                                                     "clinical trail participant" ,
+                                                                                     "clinical trial subject" ,
+                                                                                     "volunteer" .
+
+:Participant-Flow rdf:type owl:Class ;
+                                           rdfs:subClassOf :Result-Component ;
+                                           rdfs:label "Participant Flow" .
+
+:Patient rdf:type owl:Class ;
+                                  rdfs:label "Patient" .
+
+:Patient-Advocate rdf:type owl:Class ;
+                                           rdfs:label "Patient Advocate" .
+
+:Phase rdf:type owl:Class ;
+                                rdfs:subClassOf :Trial-Attribute ;
+                                rdfs:label "Phase" .
+
+:Phase-1 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Phase ;
+                                  rdfs:label "Phase 1" .
+
+:Phase-2 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Phase ;
+                                  rdfs:label "Phase 2" .
+
+:Phase-3 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Phase ;
+                                  rdfs:label "Phase 3" .
+
+:Phase-4 rdf:type owl:Class ;
+                                  rdfs:subClassOf :Phase ;
+                                  rdfs:label "Phase 4" .
+
+:Placebo-Comparator-Arm rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Arm ;
+                                                 rdfs:label "Placebo Comparator Arm" .
+
+:Platform-Protocol rdf:type owl:Class ;
+                                            rdfs:subClassOf :Master-Protocol ;
+                                            rdfs:label "Platform Protocol" .
+
+:Population-Group rdf:type owl:Class ;
+                                           rdfs:subClassOf :Protocol-Component ;
+                                           rdfs:label "Population Group" .
+
+:Post-Hoc-Endpoint rdf:type owl:Class ;
+                                            rdfs:subClassOf :Endpoint ;
+                                            rdfs:label "Post Hoc Endpoint" .
+
+:Preclinical-Study rdf:type owl:Class ;
+                                            rdfs:subClassOf :Phase ;
+                                            rdfs:label "Preclinical Study" ;
+                                            skos:altLabel "Phase 0" .
+
+:Primary-Endpoint rdf:type owl:Class ;
+                                           rdfs:subClassOf :Endpoint ;
+                                           rdfs:label "Primary Endpoint" .
+
+:Primary-Objective rdf:type owl:Class ;
+                                            rdfs:subClassOf :Objective ;
+                                            rdfs:label "Primary Objective" ;
+                                            skos:altLabel "Primary Outcome Measure" .
+
+:Principal-Investigator rdf:type owl:Class ;
+                                                 rdfs:subClassOf :Facility-Investigator ,
+                                                                 :Responsible-Party ;
+                                                 rdfs:label "Principal Investigator" ;
+                                                 skos:altLabel "PI" .
+
+:Procedure rdf:type owl:Class ;
+                                    rdfs:subClassOf :Intervention ;
+                                    rdfs:label "Procedure" .
+
+:Protocol rdf:type owl:Class ;
+                                   rdfs:label "Protocol" .
+
+:Protocol-Component rdf:type owl:Class ;
+                                             rdfs:label "Protocol Component" .
+
+:Radiation rdf:type owl:Class ;
+                                    rdfs:subClassOf :Intervention ;
+                                    rdfs:label "Radiation" .
+
+:Randomized-Controlled-Trial rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Design ;
+                                                      rdfs:label "Randomized Controlled Trial" ;
+                                                      skos:altLabel "RCT" .
+
+:Recruitment rdf:type owl:Class ;
+                                      rdfs:label "Recruitment" .
+
+:Regulatory-Authority rdf:type owl:Class ;
+                                               rdfs:label "Regulatory Authority" .
+
+:Responsible-Party rdf:type owl:Class ;
+                                            rdfs:subClassOf :Protocol-Component ;
+                                            rdfs:label "Responsible Party" .
+
+:Result-Agreement rdf:type owl:Class ;
+                                           rdfs:subClassOf :Result-Component ;
+                                           rdfs:label "Result Agreement" .
+
+:Result-Component rdf:type owl:Class ;
+                                           rdfs:label "Result Component" .
+
+:Result-Contact rdf:type owl:Class ;
+                                         rdfs:subClassOf :Result-Component ;
+                                         rdfs:label "Result Contact" .
+
+:Result-Group rdf:type owl:Class ;
+                                       rdfs:subClassOf :Result-Component ;
+                                       rdfs:label "Result Group" .
+
+:Safety rdf:type owl:Class ;
+                                 rdfs:subClassOf :Trial-Attribute ;
+                                 rdfs:label "Safety" .
+
+:Secondary-Endpoint rdf:type owl:Class ;
+                                             rdfs:subClassOf :Endpoint ;
+                                             rdfs:label "Secondary Endpoint" .
+
+:Secondary-Objective rdf:type owl:Class ;
+                                              rdfs:subClassOf :Objective ;
+                                              rdfs:label "Secondary Objective" ;
+                                              skos:altLabel "Secondary Outcome Measure" .
+
+:Serious-Adverse-Event rdf:type owl:Class ;
+                                                rdfs:subClassOf :Adverse-Event ;
+                                                rdfs:label "Serious Adverse Event" .
+
+:Sham-Comparator-Arm rdf:type owl:Class ;
+                                              rdfs:subClassOf :Arm ;
+                                              rdfs:label "Sham Comparator Arm" .
+
+:Single-Group-Assignment rdf:type owl:Class ;
+                                                  rdfs:subClassOf :Intervention-Model ;
+                                                  rdfs:label "Single Group Assignment" .
+
+:Single-Group-Study rdf:type owl:Class ;
+                                             rdfs:subClassOf :Design ;
+                                             rdfs:label "Single Group Study" ;
+                                             skos:altLabel "Single Group Assignment" .
+
+:Site rdf:type owl:Class ;
+                               rdfs:label "Site" ;
+                               skos:altLabel "Trial Site" .
+
+:Site-Management rdf:type owl:Class ;
+                                          rdfs:label "Site Management" .
+
+:Site-Team rdf:type owl:Class ;
+                                    rdfs:label "Site Team" .
+
+:Sponsor rdf:type owl:Class ;
+                                  rdfs:subClassOf :Protocol-Component ;
+                                  rdfs:label "Sponsor" .
+
+:Statistical-Analysis-Plan rdf:type owl:Class ;
+                                                    rdfs:subClassOf :Protocol-Component ;
+                                                    rdfs:label "Statistical Analysis Plan" .
+
+:Study rdf:type owl:Class ;
+                                rdfs:subClassOf :Protocol-Component ,
+                                                :Result-Component ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :hasClinicalInvestigator ;
+                                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass :Clinical-Investigator
+                                                ] ;
+                                rdfs:label "Study" .
+
+:Study-Chair rdf:type owl:Class ;
+                                      rdfs:subClassOf :Facility-Investigator ;
+                                      rdfs:label "Study Chair" .
+
+:Sub-Investigator rdf:type owl:Class ;
+                                           rdfs:subClassOf :Facility-Investigator ;
+                                           rdfs:label "Sub-Investigator" .
+
+:Subgroup rdf:type owl:Class ;
+                                   rdfs:subClassOf :Population-Group ;
+                                   rdfs:label "Subgroup" .
+
+:Trial-Attribute rdf:type owl:Class ;
+                                          rdfs:label "Trial Attribute" .
+
+:Trial-Execution rdf:type owl:Class ;
+                                          rdfs:subClassOf :Document ;
+                                          rdfs:label "Trial Execution" .
+
+:Umbrella-Protocol rdf:type owl:Class ;
+                                            rdfs:subClassOf :Master-Protocol ;
+                                            rdfs:label "Umbrella Protocol" .
+
+:Unblinding rdf:type owl:Class ;
+                                     rdfs:subClassOf :Design ;
+                                     rdfs:label "Unblinding" .
+
+:Underrepresented-Population rdf:type owl:Class ;
+                                                      rdfs:subClassOf :Subgroup ;
+                                                      rdfs:label "Underrepresented Population" .
+
+:Undeserved-Group rdf:type owl:Class ;
+                                           rdfs:subClassOf :Subgroup ;
+                                           rdfs:label "Undeserved Group" .
+
+:Clinical-Trial rdfs:label "Clinical Trial" .
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Behavioral
+                :Biological
+                :Combination-Product
+                :Device
+                :Diagnostic-Test
+                :Dietary-Supplement
+                :Drug
+                :Genetic
+                :Other-Intervention
+                :Procedure
+                :Radiation
+              )
+] .
